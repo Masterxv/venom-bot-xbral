@@ -111,7 +111,11 @@ export class SenderLayer extends ListenerLayer {
    * @param to chat id: xxxxx@us.c
    * @param content text message
    */
-  public async sendText(to: string, content: string, extra?: Serializable): Promise<Object> {
+  public async sendText(
+    to: string,
+    content: string,
+    extra?: Serializable
+  ): Promise<Object> {
     if (!extra) extra = {};
     return new Promise(async (resolve, reject) => {
       const typeFunction = 'sendText';
