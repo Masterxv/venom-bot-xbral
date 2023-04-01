@@ -206,11 +206,11 @@ export async function sendExist(chatId, returnChat = true, Send = true) {
     var idUser = new window.Store.UserConstructor(chatId, {
       intentionallyUsePrivateConstructor: true
     });
-    chat = await window.Store.Chat.find(idUser);
+    chat = await window.Store.Chat?.find(idUser);
   }
 
   if (!chat) {
-    const storeChat = await window.Store.Chat.find(chatWid);
+    const storeChat = await window.Store.Chat?.find(chatWid);
     if (storeChat) {
       chat =
         storeChat && storeChat.id && storeChat.id._serialized
