@@ -162,7 +162,11 @@ export function sendCheckType(chatId = undefined) {
       );
     }
 
-    if (Store.WidFactory && Store.WidFactory.isWidlike && !Store.WidFactory.isWidlike(chatId)) {
+    if (
+      Store.WidFactory &&
+      Store.WidFactory.isWidlike &&
+      !Store.WidFactory.isWidlike(chatId)
+    ) {
       return WAPI.scope(
         chatId,
         true,
@@ -190,7 +194,7 @@ export async function sendExist(chatId, returnChat = true, Send = true) {
     return WAPI.scope(chatId, true, ck.status, 'The number does not exist');
   }
 
-  const chatWid = new window.Store.WidFactory.createWid(chatId);
+  const chatWid = new window.Store.WidFactory()?.createWid(chatId);
 
   let chat =
     ck && ck.id && ck.id._serialized
